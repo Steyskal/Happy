@@ -29,18 +29,18 @@ namespace Happy
 			lineSegments = Mathf.Max (8, lineSegments, Mathf.RoundToInt (radius) * 2);
 			float angleIntervalRad = (2 * Mathf.PI) / lineSegments;
 
-			float lastAngle = 0.0f;
+			float lastAngleRad = 0.0f;
 
 			for (int i = 1; i <= lineSegments; i++)
 			{
-				float currentAngle = angleIntervalRad * i;
+				float currentAngleRad = angleIntervalRad * i;
 
-				Vector3 startPosition = new Vector3 (Mathf.Cos (lastAngle), Mathf.Sin (lastAngle)) * radius + center;
-				Vector3 endPosition = new Vector3 (Mathf.Cos (currentAngle), Mathf.Sin (currentAngle)) * radius + center;
+				Vector3 startPosition = new Vector3 (Mathf.Cos (lastAngleRad), Mathf.Sin (lastAngleRad)) * radius + center;
+				Vector3 endPosition = new Vector3 (Mathf.Cos (currentAngleRad), Mathf.Sin (currentAngleRad)) * radius + center;
 
 				Gizmos.DrawLine (startPosition, endPosition);
 
-				lastAngle = currentAngle;
+				lastAngleRad = currentAngleRad;
 			}
 
 			Gizmos.color = oldColor;

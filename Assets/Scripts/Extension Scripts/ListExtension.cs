@@ -18,7 +18,7 @@ namespace Happy
 			return list [Random.Range (0, list.Count)];
 		}
 
-		public static void Swap<T> (this List<T> list, int indexA, int indexB)
+		public static void SwapElements<T> (this List<T> list, int indexA, int indexB)
 		{
 			T tmp = list [indexA];
 			list [indexA] = list [indexB];

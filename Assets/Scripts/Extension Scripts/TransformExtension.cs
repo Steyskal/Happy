@@ -67,5 +67,16 @@ namespace Happy
 		}
 
 		#endregion
+
+		#region General Extensions
+
+		public static void Reset (this Transform transform)
+		{
+			transform.position = Vector3.zero;
+			transform.rotation = Quaternion.identity;
+			transform.localScale = Vector3.one;
+		}
+
+		#endregion
 	}
 }

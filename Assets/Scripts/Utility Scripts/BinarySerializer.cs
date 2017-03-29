@@ -12,17 +12,17 @@ using UnityEngine;
 
 namespace Happy
 {
-	public static class Serializer
+	public static class BinarySerializer
 	{
 		public static void Save<T> (T data) where T : class
 		{
 			string path = Application.persistentDataPath + "/" + typeof(T).Name + ".dat";
 
-			BinaryFormatter bf = new BinaryFormatter ();
-			FileStream file = File.Create (path);
+			BinaryFormatter binaryFormatter = new BinaryFormatter ();
+			FileStream fileStream = File.Create (path);
 
-			bf.Serialize (file, data);
-			file.Close ();
+			binaryFormatter.Serialize (fileStream, data);
+			fileStream.Close ();
 
 			Debug.Log ("Data saved: " + path);
 		}
@@ -33,11 +33,11 @@ namespace Happy
 
 			if (File.Exists (path))
 			{
-				BinaryFormatter bf = new BinaryFormatter ();
-				FileStream file = File.Open (path, FileMode.Open);
+				BinaryFormatter binaryFormatter = new BinaryFormatter ();
+				FileStream fileStream = File.Open (path, FileMode.Open);
 
-				T data = (T)bf.Deserialize (file);
-				file.Close ();
+				T data = (T)binaryFormatter.Deserialize (fileStream);
+				fileStream.Close ();
 
 				Debug.Log ("Data loaded: " + path);
 

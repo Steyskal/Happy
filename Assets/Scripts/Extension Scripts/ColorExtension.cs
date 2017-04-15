@@ -29,6 +29,7 @@ namespace Happy
 
 		#region Extension Colors
 
+		public static Color Brown = new Color (0.5f, 0.25f, 0.0f);
 		public static Color Orange = new Color (1.0f, 0.5f, 0.0f);
 		public static Color Purple = new Color (0.5f, 0.0f, 1.0f);
 
